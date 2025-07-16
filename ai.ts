@@ -14,7 +14,10 @@ export async function generateContent(contents: string) {
 
 export async function completePRTemplate(gitDiff: string, prTemplate: string) {
   const prompt = `
-Fill out the following PR Template using the provided Git diff. Only include the filled out template in the response, do not include any other content.
+Fill out the following PR Template using the provided Git diff.
+Only include the filled out template in the response, do not include any other content.
+The PR template should not be modified in any way. All comments should persist and have no modifications.
+
 === Start of PR Template ===
 ${prTemplate}
 === End of PR Template ===
