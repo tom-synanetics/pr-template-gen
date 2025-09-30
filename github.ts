@@ -1,4 +1,4 @@
-const GITHUB_API_KEY = process.env.GITHUB_API_KEY
+const GITHUB_API_KEY = process.env.GITHUB_TOKEN
 
 export function parseGithubPrUrl(prUrl: string) {
   const match = prUrl.match(/github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/)
@@ -55,6 +55,7 @@ export async function fetchPRDiff(
   )
 
   if (!response.ok) {
+    console.log(await response.json())
     throw new Error(
       `Failed to fetch diff: ${response.status} ${response.statusText}`
     )
